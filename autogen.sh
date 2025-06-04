@@ -82,6 +82,7 @@ if test $skip_gnulib = false; then
   GNULIB_MODULES='
     gitlog-to-changelog
     package-version
+    test-xfail
     unitypes-h
     unistr/base
     unistr/u8-check
@@ -448,6 +449,7 @@ if test $skip_gnulib = false; then
   '
   $GNULIB_TOOL --lib=libunistring --source-base=lib --m4-base=gnulib-m4 --tests-base=tests \
     --with-tests --lgpl=3orGPLv2 --makefile-name=Makefile.gnulib --libtool --local-dir=gnulib-local \
+    --avoid=float-h-tests \
     --import $GNULIB_MODULES
   # Change lib/unistr.h to be usable standalone.
   sed -e 's/if GNULIB_[A-Za-z0-9_]* || .*/if 1/g' \

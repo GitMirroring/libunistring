@@ -41,9 +41,11 @@
 #  --no-conditional-dependencies \
 #  --libtool \
 #  --macro-prefix=gl \
+#  --avoid=float-h-tests \
 #  gitlog-to-changelog \
 #  package-version \
 #  relocatable-lib-lgpl \
+#  test-xfail \
 #  unicase/base \
 #  unicase/empty-prefix-context \
 #  unicase/empty-suffix-context \
@@ -413,6 +415,7 @@ gl_MODULES([
   gitlog-to-changelog
   package-version
   relocatable-lib-lgpl
+  test-xfail
   unicase/base
   unicase/empty-prefix-context
   unicase/empty-suffix-context
@@ -776,7 +779,7 @@ gl_MODULES([
   uniwidth/u8-width
   uniwidth/width
 ])
-gl_AVOID([])
+gl_AVOID([float-h-tests])
 gl_SOURCE_BASE([lib])
 gl_M4_BASE([gnulib-m4])
 gl_PO_BASE([])

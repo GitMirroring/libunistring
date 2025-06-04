@@ -239,7 +239,9 @@ EXTRA_DIST           += libunistring.sym declared.sh
 # Tell the mingw or Cygwin linker which symbols to export.
 if WOE32DLL
 libunistring_la_SOURCES += ../woe32dll/unistring-exports.c
+if !PLATFORM_IS_MSVC
 libunistring_la_LDFLAGS += -Wl,--export-all-symbols
+endif
 endif
 
 # Hide undesired symbols that are defined by libunistring_la_SOURCES or
