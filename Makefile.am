@@ -49,12 +49,13 @@ dist-hook: gen-ChangeLog
 gen_start_date = 2023-09-10
 .PHONY: gen-ChangeLog
 gen-ChangeLog:
-	$(AM_V_GEN)if test -d .git; then                                \
+	$(AM_V_GEN)if test -d $(srcdir)/.git; then                      \
 	  log_fix="$(srcdir)/build-aux/git-log-fix";                    \
 	  test -e "$$log_fix"                                           \
 	    && amend_git_log="--amend=$$log_fix"                        \
 	    || amend_git_log=;                                          \
 	  $(top_srcdir)/build-aux/gitlog-to-changelog                   \
+	    --srcdir=$(srcdir)                                          \
 	    $$amend_git_log --no-cluster --since=$(gen_start_date) -- . \
 	    > "$(distdir)/ChangeLog-t"                                  \
 	    && rm -f "$(distdir)/ChangeLog"                             \
