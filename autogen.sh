@@ -479,7 +479,7 @@ aclocal -I m4 -I gnulib-m4 \
   && autoconf \
   && autoheader && touch config.h.in \
   && automake --add-missing --copy \
-  && patch build-aux/test-driver < build-aux/test-driver.diff \
+  && { patch build-aux/test-driver < build-aux/test-driver.diff || : ; } \
   && rm -rf autom4te.cache \
   || exit $?
 
