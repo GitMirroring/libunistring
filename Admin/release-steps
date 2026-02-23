@@ -49,6 +49,7 @@ We assume that the following environment variables are set:
 
 ** Create a release:
 
+    ./autopull.sh
     ./autogen.sh
     ./configure --disable-shared
     make
