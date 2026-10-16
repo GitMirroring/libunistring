@@ -1,3 +1,6 @@
+New in 1.5:
+* The data tables and algorithms have been updated to Unicode version 18.0.0.
+
 New in 1.4.2:
 * Fixed a build failure on systems with glibc 2.43.
 

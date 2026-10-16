@@ -922,6 +922,16 @@ The joining group has the following possible values:
 @deftypevrx Constant int UC_JOINING_GROUP_VERTICAL_TAIL
 @deftypevrx Constant int UC_JOINING_GROUP_KASHMIRI_YEH
 @deftypevrx Constant int UC_JOINING_GROUP_THIN_NOON
+@deftypevrx Constant int UC_JOINING_GROUP_CROWN_BEH
+@deftypevrx Constant int UC_JOINING_GROUP_CROWN_HAH
+@deftypevrx Constant int UC_JOINING_GROUP_CROWN_SEEN
+@deftypevrx Constant int UC_JOINING_GROUP_CROWN_SAD
+@deftypevrx Constant int UC_JOINING_GROUP_CROWN_TAH
+@deftypevrx Constant int UC_JOINING_GROUP_CROWN_AIN
+@deftypevrx Constant int UC_JOINING_GROUP_CROWN_FEH
+@deftypevrx Constant int UC_JOINING_GROUP_CROWN_KAF
+@deftypevrx Constant int UC_JOINING_GROUP_CROWN_MEEM
+@deftypevrx Constant int UC_JOINING_GROUP_CROWN_HEH
 @end deftypevr
 
 The following functions implement the association between a joining group
