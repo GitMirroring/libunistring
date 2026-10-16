@@ -302,8 +302,18 @@ MOSTLYCLEANFILES += config.h config.h-t
 EXTRA_DIST += libunistring.rc
 if WOE32
 WOE32_LIBADD = libunistring.res.lo
-libunistring.res.lo : $(srcdir)/libunistring.rc
-	$(LIBTOOL) --tag=RC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(RC) `$(SHELL) $(top_srcdir)/build-aux/windres-options --escape $(VERSION)` -i $(srcdir)/libunistring.rc -o libunistring.res.lo --output-format=coff
+libunistring.res.lo : $(srcdir)/libunistring.rc libunistring_la-version.lo
+	if test '@OBJEXT@' = obj; then \
+	  rcfile=`cygpath -w '$(srcdir)/libunistring.rc'`; \
+	  rc -folibunistring.tmp.res `$(SHELL) $(top_srcdir)/build-aux/windres-options $(VERSION)` "$$rcfile" \
+	  && cvtres -out:libunistring.res.@OBJEXT@ libunistring.tmp.res \
+	  && rm -f libunistring.tmp.res \
+	  && mkdir -p .libs \
+	  && cp libunistring.res.@OBJEXT@ .libs/libunistring.res.@OBJEXT@ \
+	  && sed -e 's/libunistring_la-version/libunistring.res/g' < libunistring_la-version.lo > libunistring.res.lo; \
+	else \
+	  $(LIBTOOL) --tag=RC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(RC) `$(SHELL) $(top_srcdir)/build-aux/windres-options --escape $(VERSION)` -i $(srcdir)/libunistring.rc -o libunistring.res.lo --output-format=coff; \
+	fi
 MOSTLYCLEANFILES += libunistring.res.lo
 else
 WOE32_LIBADD =
