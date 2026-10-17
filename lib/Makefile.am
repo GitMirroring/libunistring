@@ -1,5 +1,5 @@
 ## Makefile for the lib subdirectory of GNU libunistring.
-## Copyright (C) 2009-2025 Free Software Foundation, Inc.
+## Copyright (C) 2009-2026 Free Software Foundation, Inc.
 ##
 ## This program is free software: you can redistribute it and/or modify
 ## it under the terms of the GNU General Public License as published by
@@ -327,7 +327,7 @@ AM_CPPFLAGS += -DDEPENDS_ON_LIBICONV=1
 # Libtool's library version information for libunistring.
 # See the libtool documentation, section "Library interface versions".
 LTV_CURRENT=7
-LTV_REVISION=1
+LTV_REVISION=2
 LTV_AGE=2
 
 # How to build libunistring.la.
